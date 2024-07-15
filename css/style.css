@@ -75,6 +75,12 @@ footer {
     width: 100%; 
   }
 
+  .btn-bd-secondary {
+    background-color: #a49a4c;
+      color: #000000;
+      border-radius: 12px; /* Rounded corners */
+  }
+
   @media (min-width: 768px) {
   .card-prod:hover {
     transform: scale(1.1); 

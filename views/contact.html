@@ -47,7 +47,7 @@
             </div>
         </nav>
     </header>
-    
+
     <main>
         <section>
             <div class="conteiner">
@@ -87,18 +87,21 @@
                                 <label for="phoneNbr" class="form-label">Telefono</label>
                                 <input type="text" class="form-control" id="phoneNbr">
                             </div>
+
                             <div class="dropdown mb-3">
-                                <label> Motivo del contacto</label>
-                                <button type="button" class="btn btn-bd-primary dropdown-toggle" data-bs-toggle="dropdown">
-                                  elige una opción
+                                <label for="dropdownButton"> Motivo del contacto</label>
+                                <button type="button" class="btn btn-bd-secondary dropdown-toggle"
+                                    data-bs-toggle="dropdown" aria-expanded="false" id="dropdownButton">
+                                    Elige una opción
                                 </button>
-                                <ul class="dropdown-menu">
-                                  <li><a class="dropdown-item" href="#">Reserva</a></li>
-                                  <li><a class="dropdown-item" href="#">Sugerencia</a></li>
-                                  <li><a class="dropdown-item" href="#">Reclamo</a></li>
-                                  <li><a class="dropdown-item" href="#">Otro</a></li>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownButton">
+                                    <li><a class="dropdown-item" href="#" onclick="updateButton(this)">Reserva </a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="updateButton(this)">Sugerencia</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="#" onclick="updateButton(this)">Reclamo</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="updateButton(this)">Otro</a></li>
                                 </ul>
-                              </div>
+                            </div>
                             <div class="mb-3">
                                 <label for="message" class="form-label">Mensaje</label>
                                 <textarea class="form-control" id="message" rows="3"></textarea>
@@ -113,7 +116,12 @@
             </div>
 
 
+
             <script>
+                function updateButton(element) {
+                    document.getElementById('dropdownButton').innerText = element.innerText;
+                }
+
                 function contactController() {
                     var send;
                     send = true;
