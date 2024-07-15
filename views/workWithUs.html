@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabajá con nosotros</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body class="back h-90">
+    <header class="header-navbar">
+        <nav class="navbar navbar-expand-lg ">
+            <div class="container-fluid ">
+                <a class="navbar-brand" href="#">
+                    <img src="/images/Jalito.jpeg" alt="JalitoLogo" width="30%">
+                </a>
+                <a class="navbar-brand" href="#"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="/views/home.html">INICIO</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="/views/aboutUs.html">NUESTRA HISTORIA</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="/views/contact.html">CONTACTO</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" aria-current="page" href="#">TRABAJA CON NOSOTROS</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="form-conteiner">
+            <form id="form-cv" method="get">
+                <p>¡Envianos tu CV!</p>
+                <div class="col-md-12">
+                    <input type="text" class="col-sm-12 col-md-12 mt-3 " name="fname" id="fname" value=""
+                        placeholder="Nombre">
+                </div>
+                <div class="col-md-12">
+                    <input type="text" class="col-sm-12 col-md-12 mt-3 " name="lname" id="lname" value=""
+                        placeholder="Apellido">
+                </div>
+                <div class="col-md-12">
+                    <input type="email" class="col-sm-12 col-md-12 mt-3 " id="email" value=""
+                        placeholder="Correo electronico">
+                    <br>
+                </div>
+                <div class="col-md-12">
+                    <label class="col-sm-12 col-md-12 mt-3" for="pdfFile">Adjuntar Curriculum Vitae</label>
+                    <input type="file" id="pdfFile" name="pdfFile" accept="application/pdf">
+                </div>
+                <br>
+                <p class="col-md-12">
+                    <input type="button" id="btn-cv" class="btn btn-bd-primary" value="Enviar"
+                        onclick="formController()">
+                </p>
+            </form>
+        </div>
+
+        <script>
+            function formController() {
+
+                var send;
+                send = true;
+                let aux = "";
+
+                if (document.getElementById('fname').value == '') {
+                    aux += "-nombre\n";
+                    send = false;
+                }
+                if (document.getElementById('lname').value == '') {
+                    aux += "-apellido\n";
+                    send = false;
+                }
+                if (document.getElementById('email').value == '') {
+                    aux += "-correo electronico\n";
+                    send = false;
+                }
+                if (document.getElementById('pdfFile').value == '') {
+                    aux += "-archivo PDF\n";
+                    send = false;
+                }
+
+                if (send) {
+                    document.getElementById('form-cv').submit();
+                    window.location.href = "/views/home.html";
+                }
+                else {
+                    alert("Faltan completar los siguientes campos: \n" + aux);
+                }
+            }
+        </script>
+    </main>
+
+
+    <section>
+        <footer>
+            <ul class="list-unstyled">
+                <li class="text-footer">
+                    <i class="fas fa-map-marker-alt"></i> Rivadavia 115. Rafaela, Sta. Fe
+                </li>
+                <li class="text-footer">
+                    <i class="fas fa-phone-alt"></i> 3492 - 15123456
+                </li>
+                <li class="text-footer">
+                    <a href="https://www.instagram.com/jalito_rafaela/?hl=es-es">
+                        <i class="fab fa-instagram"></i> Instagram </a>
+                </li>
+            </ul>
+
+        </footer>
+    </section>
+</body>
+
+</html>
