@@ -1,6 +1,8 @@
 .header-navbar {
-    background-color: rgba(8, 8, 8, 255);
+  background-color: rgba(8, 8, 8, 255);
+  z-index: 1000; 
 }
+
 
 .nav-link{
     color: #b5ad57 !important;
@@ -14,6 +16,31 @@
     --bs-navbar-toggler-border-color: #b5ad57;
     
 }
+
+.logo-image {
+  max-width: 100%;
+  height: auto;
+}
+
+div.container.container-navbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center; /* Centra el texto verticalmente */
+}
+.navbar-toggler {
+  --bs-navbar-toggler-border-color: #b5ad57; /* Color del borde del botón hamburguesa */
+}
+
+
 
 footer {
     height: 100px;
@@ -85,6 +112,16 @@ footer {
   .card-prod:hover {
     transform: scale(1.1); 
   }
+  .logo-image {
+    max-width: 30%;
+    height: auto;
+  }
+  
+  div.container.container-navbar {
+    flex-wrap: nowrap;
+  }
+  
+
   }
 
 
