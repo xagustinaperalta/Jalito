@@ -15,7 +15,7 @@
 
 </head>
 
-<body class="back h-90">
+<body class="d-flex flex-column min-vh-100 back">
     <header class="header-navbar ">
         <nav class="navbar navbar-expand-lg">
             <div class="container container-navbar">
@@ -48,35 +48,36 @@
             </div>
         </nav>
     </header>
-    <main>
-        <div class="form-conteiner">
-            <form id="form-cv" method="get">
-                <p>¡Envianos tu CV!</p>
-                <div class="col-md-12">
-                    <input type="text" class="col-sm-12 col-md-12 mt-3 " name="fname" id="fname" value=""
-                        placeholder="Nombre">
-                </div>
-                <div class="col-md-12">
-                    <input type="text" class="col-sm-12 col-md-12 mt-3 " name="lname" id="lname" value=""
-                        placeholder="Apellido">
-                </div>
-                <div class="col-md-12">
-                    <input type="email" class="col-sm-12 col-md-12 mt-3 " id="email" value=""
-                        placeholder="Correo electronico">
+    <main class="flex-grow-1">
+        <div class="container-fluid ">
+            <div class="form-conteiner ">
+                <form id="form-cv" method="get">
+                    <p>¡Envianos tu CV!</p>
+                    <div class="mb-3">
+                        <input type="text" class="form-control " name="fname" id="fname" value=""
+                            placeholder="Nombre">
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" name="lname" id="lname" value=""
+                            placeholder="Apellido">
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" id="email" value=""
+                            placeholder="Correo electronico">
+                        <br>
+                    </div>
+                    <div class="mb-3">
+                        <label for="pdfFile" class="form-label">Adjuntar Curriculum Vitae</label>
+                        <input class="form-control" type="file" id="pdfFile" name="pdfFile" accept="application/pdf">
+                    </div>
                     <br>
-                </div>
-                <div class="col-md-12">
-                    <label class="col-sm-12 col-md-12 mt-3" for="pdfFile">Adjuntar Curriculum Vitae</label>
-                    <input type="file" id="pdfFile" name="pdfFile" accept="application/pdf">
-                </div>
-                <br>
-                <p class="col-md-12">
-                    <input type="button" id="btn-cv" class="btn btn-bd-primary" value="Enviar"
-                        onclick="formController()">
-                </p>
-            </form>
+                    <p class="mb-3">
+                        <input type="button" id="btn-cv" class="btn btn-bd-primary" value="Enviar"
+                            onclick="formController()">
+                    </p>
+                </form>
+            </div>
         </div>
-
         <script>
             function formController() {
 
@@ -114,8 +115,8 @@
 
 
     <section>
-        <footer>
-            <ul class="list-unstyled">
+        <footer class="mt-auto">
+            <ul class="list-unstyled text-center">
                 <li class="text-footer">
                     <i class="fas fa-map-marker-alt"></i> Rivadavia 115. Rafaela, Sta. Fe
                 </li>
