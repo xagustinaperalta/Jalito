@@ -1,12 +1,39 @@
 [
     {
         "id": 1,
-        "name": "Alegria del hogar",
-        "description": "Planta de exterior",
-        "price": "600",
-        "discount": "10",
-        "category": "",
-        "image": "PE-Alegria_del_Hogar.png",
-        "sale": "in-sale"
+        "name": "Cervezas",
+        "description": "",
+        "image": "cerveza.jpeg"
+      },
+      {
+        "id": 2,
+        "name": "Tostados",
+        "description": "",
+        "image": "tostados.jpeg"
+      },
+      {
+        "id": 3,
+        "name": "Facturas",
+        "description": "",
+        "image": "facturas.jpeg"
+      },
+      {
+        "id": 4,
+        "name": "Submarino",
+        "description": "",
+        "image": "submarino.jpeg"
+      },
+      {
+        "id": 5,
+        "name": "Merienda",
+        "description": "",
+        "image": "merienda.jpeg"
+      },
+      {
+        "id": 6,
+        "name": "Cafe",
+        "description": "",
+        "image": "cafe1.jpeg"
       }
+      
 ]

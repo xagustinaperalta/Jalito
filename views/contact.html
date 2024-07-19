@@ -29,7 +29,7 @@
                 <div class="collapse navbar-collapse flex-column" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link"  href="/views/home.html">INICIO</a>
+                            <a class="nav-link" href="/views/home.html">INICIO</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/views/aboutUs.html">CONOCENOS</a>
@@ -82,26 +82,39 @@
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email">
+                                <input type="text" class="form-control" id="email">
                             </div>
                             <div class="mb-3">
-                                <label for="phoneNbr" class="form-label">Telefono</label>
+                                <label for="phoneNbr" class="form-label">Telefono (sin 0 ni 15) </label>
                                 <input type="text" class="form-control" id="phoneNbr">
                             </div>
 
                             <div class="dropdown mb-3">
-                                <label for="dropdownButton"> Motivo del contacto</label>
+                                <label class="form-label" for="dropdownButton">Motivo del contacto</label>
                                 <button type="button" class="btn btn-bd-secondary dropdown-toggle"
                                     data-bs-toggle="dropdown" aria-expanded="false" id="dropdownButton">
                                     Elige una opción
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownButton">
-                                    <li><a class="dropdown-item" href="#" onclick="updateButton(this)">Reserva </a></li>
-                                    <li><a class="dropdown-item" href="#" onclick="updateButton(this)">Sugerencia</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="#" onclick="updateButton(this)">Reclamo</a></li>
-                                    <li><a class="dropdown-item" href="#" onclick="updateButton(this)">Otro</a></li>
+                                    <li><a class="dropdown-item" href="#"
+                                            onclick="updateButton(this, 'motivoContacto')">Reserva</a></li>
+                                    <li><a class="dropdown-item" href="#"
+                                            onclick="updateButton(this, 'motivoContacto')">Sugerencia</a></li>
+                                    <li><a class="dropdown-item" href="#"
+                                            onclick="updateButton(this, 'motivoContacto')">Reclamo</a></li>
+                                    <li><a class="dropdown-item" href="#"
+                                            onclick="updateButton(this, 'motivoContacto')">Otro</a></li>
                                 </ul>
+                                <input type="hidden" id="motivoContacto" name="motivoContacto" value="">
+                            </div>
+                            <div class="mb-3">
+                                <p>¿Con que frecuencia visitas el bar?</p>
+                                <input type="radio" id="never" name="frequency" value="never">
+                                <label for="never">Nunca fui</label><br>
+                                <input type="radio" id="sometimes" name="frequency" value="sometimes">
+                                <label for="sometimes">Voy ocacionalmente</label><br>
+                                <input type="radio" id="always" name="frequency" value="always">
+                                <label for="always">Voy todo el tiempo</label>
                             </div>
                             <div class="mb-3">
                                 <label for="message" class="form-label">Mensaje</label>
@@ -119,8 +132,11 @@
 
 
             <script>
-                function updateButton(element) {
+                function updateButton(element, inputId) {
+                    /*actualiza el texto */
                     document.getElementById('dropdownButton').innerText = element.innerText;
+                    /*tengo que asegurarme de guardar el valor seleccionado*/
+                    document.getElementById(inputId).value = element.innerText;
                 }
 
                 function contactController() {
@@ -132,12 +148,31 @@
                         aux += "-nombre\n";
                         send = false;
                     }
+                    let email = document.getElementById('email').value;
                     if (document.getElementById('email').value == '') {
                         aux += "-correo electronico\n";
                         send = false;
+                    }else if(!validateEmail(email)){
+                        aux += "-email invalido\n";
+                        send = false;
                     }
+
+                    /*no solamente se valida que este completo sino que el formato sea correcto*/
+                    let phoneNbr = document.getElementById('phoneNbr').value;
                     if (document.getElementById('phoneNbr').value == '') {
                         aux += "-telefono\n";
+                        send = false;
+                    }else if (!validatePhoneNumber(phoneNbr)) {
+                        aux += "-telefono invalido\n";
+                        send = false;
+                    }
+
+                    if (document.getElementById('motivoContacto').value == '') {
+                        aux += "-motivo del contacto\n"
+                        send = false;
+                    }
+                    if (!document.querySelector('input[name="frequency"]:checked')) {
+                        aux += "-frecuencia de visita\n";
                         send = false;
                     }
                     if (document.getElementById('message').value == '') {
@@ -153,6 +188,16 @@
                         alert("Faltan completar los siguientes campos: \n" + aux);
                         document.getElementById('btn-contact').value = 'Intentar otra vez'
                     }
+                }
+
+                function validateEmail(email) {
+                    var re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+                    return re.test(email);
+                }
+
+                function validatePhoneNumber(phoneNbr) {
+                    var re = /^[0-9]{10}$/; // Example: for a 10-digit phone number
+                    return re.test(phoneNbr);
                 }
             </script>
 
