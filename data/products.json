@@ -9,35 +9,35 @@
       {
         "id": 2,
         "name": "Tostados",
-        "description": "Prueba nuestros tostados, una opción deliciosa y reconfortante que combina lo mejor del pan recién tostado con una variedad de rellenos sabrosos. Combinaciones clásicas como jamón y queso y tambien opciones vegetarianas y veganas",
+        "description": "Prueba nuestros tostados, una opción deliciosa y reconfortante que combina lo mejor del pan recién tostado con una variedad de rellenos sabrosos.",
         "price": "Desde $2500",
         "image": "../images/tostados.jpeg"
       },
       {
         "id": 3,
         "name": "Panadería Artesanal",
-        "description": "Explora nuestra deliciosa variedad de productos de panadería artesanal.Desde suaves y esponjosos bizcochos hasta irresistibles facturas de crema.Nuestros productos son con ingredientes de la más alta calidad.",
+        "description": "Explora nuestra deliciosa variedad de productos de panadería artesanal.Desde suaves y esponjosos bizcochos hasta irresistibles facturas de crema.",
         "price": "Desde $500",
         "image": "../images/facturas.jpg"
       },
       {
         "id": 4,
         "name": "Submarino",
-        "description": "Disfruta de nuestra versión especial del clásico 'Submarino', una bebida caliente que combina chocolate de alta calidad con leche espumosa. Ideal para sumar a tu merienda los días fríos.",
+        "description": "Disfruta de nuestra versión especial del clásico 'Submarino', una bebida caliente que combina chocolate de alta calidad con leche espumosa. ",
         "price": "Desde $1500",
         "image": "../images/submarino.jpg"
       },
       {
         "id": 5,
         "name": "Merienda",
-        "description": "Disfruta de una merienda única con nuestro delicioso café a elección, acompañado de un juego a tu gusto y unas suaves y frescas medialunas. Una combinación perfecta para disfrutar solo o en buena compañía.",
+        "description": "Disfruta de una merienda única con nuestro delicioso café a elección, acompañado de un juego a tu gusto y unas suaves y frescas medialunas. ",
         "price": "Desde $2500",
         "image": "../images/merienda.jpg"
       },
       {
         "id": 6,
         "name": "Cafe + Cheeskcake",
-        "description": "Disfruta de una combinación perfecta de sabor con nuestro delicioso café y un suave cheesecake casero. El café, con su aroma profundo, se complementa perfectamente con nuestro cheesecake cremoso y lleno de sabor.",
+        "description": "Disfruta de una combinación perfecta de sabor con nuestro delicioso café y un suave cheesecake casero. Una combinacion riquisima",
         "price": "Desde $2500",
         "image": "../images/cafe1.jpg"
       }
