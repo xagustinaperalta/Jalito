@@ -49,10 +49,13 @@
         </nav>
     </header>
 
-  <main>
-      <section>
-          <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 gx-4 mx-auto w-100">
-
+    <main>
+        <section>
+            <div>
+                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 gx-4 mx-auto w-100"
+                    id="products-container">
+                </div>
+                <!--
               <div class="col">
                   <div class="card card-prod mb-3 ">
                       <div class="row g-0">
@@ -72,6 +75,7 @@
                       </div>
                   </div>
               </div>
+            
               <div class="col">
                   <div class="card card-prod mb-3">
                       <div class="row g-0">
@@ -129,37 +133,71 @@
                           </div>
                       </div>
                   </div>
-              </div>
+              </div>-->
 
-              <div class="row col-sm-12 col-md-4 mx-auto mb-4 g-3">
-                  <button class="btn btn-bd-primary " type="button">
-                      <a href="https://www.instagram.com/stories/highlights/17958828707592655/?hl=es-es" class="text-decoration-none text-dark">
-                      Carta completa</a>
-                  </button>
-                  <button class="btn btn-bd-primary" type="button">
-                      <a href="https://www.pedidosya.com.ar/restaurantes/rafaela/jalito-cafe-menu" class="text-decoration-none text-dark">
-                      Pedidos Ya</a>
-                  </button>
-              </div>
-          </div>
-      </section>
-      
-  </main>
-  <footer>
-      <ul class="list-unstyled">
-          <li class="text-footer">
-              <i class="fas fa-map-marker-alt"></i> Rivadavia 115. Rafaela, Sta. Fe
-          </li>
-          <li class="text-footer">
-              <i class="fas fa-phone-alt"></i> 3492 - 15123456
-          </li>
-          <li class="text-footer">
-              <a href="https://www.instagram.com/jalito_rafaela/?hl=es-es">
-                  <i class="fab fa-instagram"></i> Instagram </a>
-          </li>
-      </ul>
+                <div class="container ">
+                    <div class="row col-sm-10 col-md-4 mx-auto m-4 g-3">
+                        <button class="btn btn-bd-primary " type="button">
+                            <a href="https://www.instagram.com/stories/highlights/17958828707592655/?hl=es-es"
+                                class="text-decoration-none text-dark">
+                                Carta completa</a>
+                        </button>
+                        <button class="btn btn-bd-primary" type="button">
+                            <a href="https://www.pedidosya.com.ar/restaurantes/rafaela/jalito-cafe-menu"
+                                class="text-decoration-none text-dark">
+                                Pedidos Ya</a>
+                        </button>
+                    </div>
+                </div>
 
-  </footer>
+            </div>
+        </section>
+
+        <script>
+            fetch('../data/products.json')
+                .then(response => response.json())
+                .then(data => {
+                    const container = document.getElementById('products-container');
+                    data.forEach(product => {
+                        const productDiv = document.createElement('div');
+                        productDiv.className = 'col';
+                        productDiv.innerHTML = `
+                        <div class="card card-prod mb-3">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img src="../images/${product.image}" class="img-fluid rounded-start" alt="${product.name}">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">${product.name}</h5>
+                                        <p class="card-text mt-5">${product.description}</p>
+                                        <p class="card-text mt-5">${product.price}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>`;
+                        container.appendChild(productDiv);
+                    });
+                })
+                .catch(error => console.error('Error al cargar los productos:', error));
+        </script>
+
+    </main>
+
+    <footer>
+        <ul class="list-unstyled">
+            <li class="text-footer">
+                <i class="fas fa-map-marker-alt"></i> Rivadavia 115. Rafaela, Sta. Fe
+            </li>
+            <li class="text-footer">
+                <i class="fas fa-phone-alt"></i> 3492 - 15123456
+            </li>
+            <li class="text-footer">
+                <a href="https://www.instagram.com/jalito_rafaela/?hl=es-es">
+                    <i class="fab fa-instagram"></i> Instagram </a>
+            </li>
+        </ul>
+    </footer>
 
 </body>
 
