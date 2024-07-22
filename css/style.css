@@ -3,7 +3,6 @@ body {
   padding: 0;
   width: 100%;
   overflow-x: hidden;
-  /* Evitar scroll horizontal no deseado */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -14,10 +13,9 @@ body {
   z-index: 1000;
 }
 
-
 .nav-link {
   color: #b5ad57 !important;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .back {
@@ -26,7 +24,6 @@ body {
 
 .navbar-toggler {
   --bs-navbar-toggler-border-color: #b5ad57;
-
 }
 
 .logo-image {
@@ -47,14 +44,11 @@ div.container.container-navbar {
   align-items: center;
   flex-direction: column;
   text-align: center;
-  /* Centra el texto verticalmente */
 }
 
 .navbar-toggler {
   --bs-navbar-toggler-border-color: #b5ad57;
-  /* Color del borde del botón hamburguesa */
 }
-
 
 
 footer {
@@ -79,22 +73,22 @@ footer {
   color: #b7ab3b;
   text-decoration: none;
 }
+
 .text-footer i {
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .text-footer i:hover {
-  transform: scale(1.2); 
-  color: #f1c40f; 
+  transform: scale(1.2);
+  color: #f1c40f;
 }
 
 .card-prod {
   margin: 5%;
-  transition: transform 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 
-/*trabaja con nosotros*/
 .form-conteiner {
   max-width: 500px;
   margin: 5% auto;
@@ -118,29 +112,20 @@ footer {
   --bs-btn-active-bg: #8f8641;
   --bs-btn-active-border-color: #8f8641;
   box-shadow: 0 0 0 2px #000000;
-  width: 100%;
-}
-
-.btn-bd-secondary {
-  background-color: #a49a4c;
-  color: #000000;
-  border-radius: 12px;
-  /* Rounded corners */
+  width: 100%; 
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; 
 }
 
 .cafe-icon,
 .beer-icon,
 .glass-icon,
-.pizza-icon{
+.pizza-icon {
   animation: fadeInOut 4s infinite;
 }
+
 @keyframes fadeInOut {
-  0%, 100% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
+  0%, 100% {opacity: 0; }
+  50% { opacity: 1; }
 }
 
 .msg-icon {
@@ -154,10 +139,31 @@ footer {
   100% { color: black; }
 }
 
+.contact-icon {
+  animation: colorChange 2s infinite;
+}
+
+@keyframes colorChange {
+  0% { color: black; }
+  50% { color: #b5ad57; }
+  100% { color: black; }
+}
+
 
 @media (min-width: 768px) {
+
+  .btn-bd-primary:hover {
+    background-color: var(--bs-btn-hover-bg);
+    color: var(--bs-btn-hover-color);
+    box-shadow: 0 0 10px 2px #a49a4c;
+  }
+
   .card-prod:hover {
     transform: scale(1.1);
+  }
+
+  .card-prod:active {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   }
 
   .logo-image {
@@ -169,48 +175,27 @@ footer {
     flex-wrap: nowrap;
   }
 
-  .card-prod:active {
-    color: #b5ad57;
-  }
-
   .nav-link:hover {
-    background-color: #5f5f5f;
     transform: scale(1.1);
   }
 
   .text-w {
-    color: #000000; 
-    transition: color 0.3s ease; 
-    text-decoration: none; 
-}
-.text-w:hover {
-    color: #b5ad57; 
-    text-decoration: underline; 
-}
+    color: #000000;
+    transition: color 0.3s ease;
+    text-decoration: none;
+  }
 
-  .card-au{
+  .text-w:hover {
+    color: #b5ad57;
+    text-decoration: underline;
+  }
+
+  .card-au {
     transition: box-shadow 0.3s ease;
   }
 
   .card-au:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
-  }
-
-  .contact-icon{
-    animation: colorChange 2s infinite; 
-  }
-  
-  
-  @keyframes colorChange {
-    0% {
-      color: black; 
-    }
-    50% {
-      color: #b5ad57; 
-    }
-    100% {
-      color: black; 
-    }
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   }
 
 
