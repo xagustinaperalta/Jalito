@@ -54,16 +54,13 @@
                 <form id="form-cv" method="get">
                     <p>¡Envianos tu CV!</p>
                     <div class="mb-3">
-                        <input type="text" class="form-control " name="fname" id="fname" value=""
-                            placeholder="Nombre">
+                        <input type="text" class="form-control " name="fname" id="fname" value="" placeholder="Nombre">
                     </div>
                     <div class="mb-3">
-                        <input type="text" class="form-control" name="lname" id="lname" value=""
-                            placeholder="Apellido">
+                        <input type="text" class="form-control" name="lname" id="lname" value="" placeholder="Apellido">
                     </div>
                     <div class="mb-3">
-                        <input type="email" class="form-control" id="email" value=""
-                            placeholder="Correo electronico">
+                        <input type="text" class="form-control" id="email" value="" placeholder="Correo electronico">
                         <br>
                     </div>
                     <div class="mb-3">
@@ -79,11 +76,17 @@
             </div>
         </div>
         <script>
+            function validateEmail(email) {
+                var re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+                return re.test(email);
+            }
+            
             function formController() {
 
-                var send;
+                let send;
                 send = true;
                 let aux = "";
+
 
                 if (document.getElementById('fname').value == '') {
                     aux += "-nombre\n";
@@ -93,10 +96,16 @@
                     aux += "-apellido\n";
                     send = false;
                 }
+
+                let email = document.getElementById('email').value;
                 if (document.getElementById('email').value == '') {
                     aux += "-correo electronico\n";
                     send = false;
+                } else if (!validateEmail(email)) {
+                    aux += "-email invalido\n";
+                    send = false;
                 }
+
                 if (document.getElementById('pdfFile').value == '') {
                     aux += "-archivo PDF\n";
                     send = false;
